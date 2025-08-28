@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'Gaydaar V1',
     images: [
       {
-        url: '/og-image.png',
+        url: '/images/og-image.jpeg',
         width: 1200,
         height: 630,
         alt: 'Gaydaar V1 Preview',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Gaydaar V1',
     description: 'Simple scrollable list with photos and names',
-    images: ['/og-image.png'],
+    images: ['/images/og-image.jpeg'],
   },
 }
 
