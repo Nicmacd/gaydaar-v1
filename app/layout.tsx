@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gaydaar V1',
     description: 'Simple scrollable list with photos and names',
-    url: 'https://your-domain.vercel.app',
+    url: 'https://gaydaar-v1.vercel.app',
     siteName: 'Gaydaar V1',
     images: [
       {
