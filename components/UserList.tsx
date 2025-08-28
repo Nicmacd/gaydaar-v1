@@ -38,33 +38,38 @@ export default function UserList() {
     },
     {
       id: '4',
-      name: 'James',
-      photoUrl: '/images/James2.jpg'
-    },
-    {
-      id: '5',
       name: 'John',
       photoUrl: '/images/John.jpg'
     },
     {
-      id: '6',
+      id: '5',
       name: 'Julian',
       photoUrl: '/images/Julian.JPG'
     },
     {
-      id: '7',
+      id: '6',
       name: 'Nolan',
       photoUrl: '/images/Nolan.JPG'
     },
     {
-      id: '8',
+      id: '7',
       name: 'Obiora',
       photoUrl: '/images/Obiora.jpg'
     },
     {
-      id: '9',
+      id: '8',
       name: 'Ryan',
       photoUrl: '/images/Ryan.jpg'
+    },
+    {
+      id: '9',
+      name: 'Scott',
+      photoUrl: '/images/Scott.jpeg'
+    },
+    {
+      id: '10',
+      name: 'James',
+      photoUrl: '/images/James2.jpg'
     }
   ];
 
