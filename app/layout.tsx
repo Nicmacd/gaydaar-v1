@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'Gaydaar V1',
     images: [
       {
-        url: '/images/og-image.jpeg',
+        url: 'https://gaydaar-v1.vercel.app/images/og-image.jpeg',
         width: 1200,
         height: 630,
         alt: 'Gaydaar V1 Preview',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Gaydaar V1',
     description: 'Simple scrollable list with photos and names',
-    images: ['/images/og-image.jpeg'],
+    images: ['https://gaydaar-v1.vercel.app/images/og-image.jpeg'],
   },
 }
 
@@ -35,6 +35,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:image" content="https://gaydaar-v1.vercel.app/images/og-image.jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:image" content="https://gaydaar-v1.vercel.app/images/og-image.jpeg" />
+        <meta name="twitter:image:alt" content="Gaydaar V1 Preview" />
+      </head>
       <body className="bg-black text-white min-h-screen">
         {children}
       </body>
