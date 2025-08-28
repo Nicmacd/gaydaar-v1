@@ -4,6 +4,28 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Gaydaar V1',
   description: 'Simple scrollable list with photos and names',
+  openGraph: {
+    title: 'Gaydaar V1',
+    description: 'Simple scrollable list with photos and names',
+    url: 'https://your-domain.vercel.app',
+    siteName: 'Gaydaar V1',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Gaydaar V1 Preview',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gaydaar V1',
+    description: 'Simple scrollable list with photos and names',
+    images: ['/og-image.png'],
+  },
 }
 
 export default function RootLayout({
