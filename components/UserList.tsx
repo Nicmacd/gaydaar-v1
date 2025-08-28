@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 /**
@@ -19,6 +19,9 @@ interface User {
  * Similar to the reference image with a 2-column layout
  */
 export default function UserList() {
+  // State for modal
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+
   // User data matching your actual photos
   const users: User[] = [
     {
@@ -73,6 +76,16 @@ export default function UserList() {
     }
   ];
 
+  // Open modal
+  const openModal = (user: User) => {
+    setSelectedUser(user);
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setSelectedUser(null);
+  };
+
   return (
     <div className="min-h-screen bg-black">
       {/* Main container with padding */}
@@ -83,15 +96,15 @@ export default function UserList() {
             <div
               key={user.id}
               className="relative cursor-pointer transition-all duration-200 hover:scale-[1.02]"
+              onClick={() => openModal(user)}
             >
               {/* User photo card with 3:4 aspect ratio */}
               <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-gray-800 bg-gray-900">
-                <Image 
+                <img 
                   src={user.photoUrl} 
                   alt={user.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                  className="w-full h-full object-cover"
+                  style={{ imageOrientation: 'from-image' }}
                 />
               </div>
               
@@ -105,6 +118,41 @@ export default function UserList() {
           ))}
         </div>
       </div>
+
+      {/* Modal for expanded image */}
+      {selectedUser && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          {/* Modal content */}
+          <div 
+            className="relative max-w-full max-h-full flex items-center justify-center"
+          >
+            {/* Expanded image - clicking it will close the modal */}
+            <div 
+              className="relative transition-all duration-300 ease-in-out transform scale-100 opacity-100 cursor-pointer"
+              onClick={closeModal}
+            >
+              <img
+                src={selectedUser.photoUrl}
+                alt={selectedUser.name}
+                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
+                style={{
+                  touchAction: 'pinch-zoom'
+                }}
+              />
+            </div>
+            
+            {/* User name below expanded image */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 px-4 py-2 rounded-lg pointer-events-none">
+              <h3 className="text-white text-lg font-semibold text-center">
+                {selectedUser.name}
+              </h3>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
